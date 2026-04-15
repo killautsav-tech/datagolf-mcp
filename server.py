@@ -15,6 +15,9 @@ BASE_URL = "https://feeds.datagolf.com"
 
 mcp = FastMCP("DataGolf")
 
+# Allow connections from any host (required for Render / cloud deployment)
+mcp.settings.transport_security.enable_dns_rebinding_protection = False
+
 
 # ── Helper ────────────────────────────────────────────────────────────────────
 async def _call(endpoint: str, params: dict | None = None) -> str:
